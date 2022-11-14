@@ -5,18 +5,15 @@ export default {
     data() {
         return {
             store,
-
         }
     }
 }
-
 </script>
 
 
 <template>
     <input type="text" v-model="store.searchKey">
     <button @click="$emit('research')">Search</button>
-
 </template>
 
 

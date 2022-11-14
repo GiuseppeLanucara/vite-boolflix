@@ -12,7 +12,6 @@ export default {
 <template>
     <header>
         <h1>BOOLFLIX</h1>
-
     </header>
 
 </template>
