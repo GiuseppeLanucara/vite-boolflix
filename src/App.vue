@@ -3,7 +3,7 @@ import axios from "axios"
 import AppHeader from "./components/AppHeader.vue";
 import AppSearch from "./components/AppSearch.vue";
 import AppMain from "./components/AppMain.vue";
-import AppCard from "./components/AppSearch.vue";
+import AppCard from "./components/AppCard.vue";
 import { store } from "./store";
 export default {
   components: {
