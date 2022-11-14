@@ -18,18 +18,20 @@ export default {
     }
   },
   created() {
-    this.getProducts()
+
   },
   methods: {
     getProducts() {
       let apiUrl = `${store.apiUrlMovie}?api_key=${store.apiUrlKey}`
       if (this.store.searchKey !== "") {
         apiUrl += `&query=${this.store.searchKey}`
+        axios.get(apiUrl).then((resp) => {
+          this.store.movies = resp.data.results
+          console.log(this.store.movies);
+        })
       }
-      axios.get(apiUrl).then((resp) => {
-        this.store.movies = resp.data.results
-        console.log(this.store.movies);
-      })
+
+
     }
   }
 
