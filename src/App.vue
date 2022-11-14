@@ -18,12 +18,18 @@ export default {
     }
   },
   created() {
-    axios.get("https://api.themoviedb.org/3/search/movie?api_key=2e302d29775f4de190d7658d34f4d6d2")
-      .then((resp) => console.log(resp))
+    this.getProducts()
   },
   methods: {
     getProducts() {
-
+      let apiUrl = `${store.apiUrlMovie}?api_key=${store.apiUrlKey}`
+      if (this.store.searchKey !== "") {
+        apiUrl += `&query=${this.store.searchKey}`
+      }
+      axios.get(apiUrl).then((resp) => {
+        this.store.movies = resp.data.results
+        console.log(this.store.movies);
+      })
     }
   }
 
