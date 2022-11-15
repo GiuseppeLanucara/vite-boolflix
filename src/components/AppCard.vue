@@ -46,7 +46,7 @@ export default {
                         :src="getImgUrl(series.original_language)">
                     <p v-else>{{ series.original_language }}</p>
                 </div>
-                <span><i v-for="number in Math.ceil(series.vote_average / 2)" class="fa-solid fa-star"></i></span>
+                <span><i v-for="number in Math.ceil(series.vote_average / 2)" class="fa-solid fa-star yell"></i></span>
 
             </div>
         </div>
