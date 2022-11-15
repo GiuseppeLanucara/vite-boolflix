@@ -4,7 +4,13 @@ export default {
     name: "AppCard",
     data() {
         return {
-            store
+            store,
+            avaibleFlags: ["en", "it"]
+        }
+    },
+    methods: {
+        getImgUrl(imgName) {
+            return new URL(`../assets/img/${imgName}.png`, import.meta.url).href;
         }
     }
 }
@@ -16,7 +22,11 @@ export default {
         <div class="card" v-for="(movie, index) in store.movies" :key="index">
             <h2>{{ movie.title }}</h2>
             <h3>{{ movie.original_title }}</h3>
-            <p>{{ movie.original_language }}</p>
+            <div>
+                <img v-if="avaibleFlags.includes(item.original_language)" :src="getImgUrl(item.original_language)">
+                <p v-else>{{ movie.original_language }}</p>
+            </div>
+
             <span>{{ movie.vote_average }}</span>
         </div>
         <h2>Series</h2>
