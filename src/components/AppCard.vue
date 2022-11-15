@@ -20,6 +20,7 @@ export default {
     <h3>Movies</h3>
     <div class="container">
         <div class="card" v-for="(movie, index) in store.movies" :key="index">
+            <img :src="`${store.imgDownload}${movie.poster_path}`">
             <h2>{{ movie.title }}</h2>
             <h3>{{ movie.original_title }}</h3>
             <div>
@@ -31,7 +32,7 @@ export default {
         <h2>Series</h2>
         <div class="section">
             <div class="card" v-for="(series, index) in store.series" :key="index">
-                <img :src="`${this.store.imgDownload}`">
+                <img :src="`${store.imgDownload}${series.poster_path}`">
                 <h2>{{ series.name }}</h2>
                 <h3>{{ series.original_name }}</h3>
                 <div>
