@@ -32,6 +32,8 @@ export default {
             </div>
             <span><i v-for="number in Math.ceil(movie.vote_average / 2)" class="fa-solid fa-star"></i></span>
         </div>
+
+
         <h2>Series</h2>
         <div class="section">
             <div class="card" v-for="(series, index) in store.series" :key="index">
