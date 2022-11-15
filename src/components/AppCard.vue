@@ -31,6 +31,7 @@ export default {
         <h2>Series</h2>
         <div class="section">
             <div class="card" v-for="(series, index) in store.series" :key="index">
+                <img :src="`${this.store.imgDownload}`">
                 <h2>{{ series.name }}</h2>
                 <h3>{{ series.original_name }}</h3>
                 <div>
