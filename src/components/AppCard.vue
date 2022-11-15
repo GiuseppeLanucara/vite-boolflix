@@ -2,9 +2,7 @@
 import { store } from "../store";
 export default {
     name: "AppCard",
-    props: {
-        star: Number,
-    },
+
     data() {
         return {
             store,
@@ -15,10 +13,7 @@ export default {
         getImgUrl(imgName) {
             return new URL(`../assets/img/${imgName}.png`, import.meta.url).href;
         },
-        getProductVote: function () {
-            if (star)
-                return Math.ceil(vote / 2);
-        }
+
     }
 }
 </script>
@@ -30,14 +25,12 @@ export default {
             <img :src="`${store.imgDownload}${movie.poster_path}`">
             <h2>{{ movie.title }}</h2>
             <h3>{{ movie.original_title }}</h3>
-            <p class="stars" v-if="star > 0"><span>Vote:</span><span v-for="star in Math.ceil(star / 2)"><i
-                        class="fa-solid fa-star"></i></span>
-            </p>
+
             <div>
                 <img v-if="avaibleFlags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)">
                 <p v-else>{{ movie.original_language }}</p>
             </div>
-            <span>{{ movie.vote_average }}</span>
+            <span><i v-for="number in Math.ceil(movie.vote_average / 2)" class="fa-solid fa-star"></i></span>
         </div>
         <h2>Series</h2>
         <div class="section">
@@ -45,12 +38,14 @@ export default {
                 <img :src="`${store.imgDownload}${series.poster_path}`">
                 <h2>{{ series.name }}</h2>
                 <h3>{{ series.original_name }}</h3>
+
                 <div>
                     <img v-if="avaibleFlags.includes(series.original_language)"
                         :src="getImgUrl(series.original_language)">
                     <p v-else>{{ series.original_language }}</p>
                 </div>
-                <span>{{ series.vote_average }}</span>
+                <span><i v-for="number in Math.ceil(series.vote_average / 2)" class="fa-solid fa-star"></i></span>
+
             </div>
         </div>
     </div>
