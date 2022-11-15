@@ -30,7 +30,7 @@ export default {
                 <img v-if="avaibleFlags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)">
                 <p v-else>{{ movie.original_language }}</p>
             </div>
-            <span><i v-for="number in Math.ceil(movie.vote_average / 2)" class="fa-solid fa-star"></i></span>
+            <span><i v-for="number in Math.ceil(movie.vote_average / 2)" class="fa-solid fa-star yell"></i></span>
         </div>
 
 
@@ -53,6 +53,8 @@ export default {
     </div>
 </template>
 
-<style>
-
+<style lang="scss" scoped>
+.yell {
+    color: yellow;
+}
 </style>
