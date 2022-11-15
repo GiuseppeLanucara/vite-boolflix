@@ -23,10 +23,9 @@ export default {
             <h2>{{ movie.title }}</h2>
             <h3>{{ movie.original_title }}</h3>
             <div>
-                <img v-if="avaibleFlags.includes(item.original_language)" :src="getImgUrl(item.original_language)">
+                <img v-if="avaibleFlags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)">
                 <p v-else>{{ movie.original_language }}</p>
             </div>
-
             <span>{{ movie.vote_average }}</span>
         </div>
         <h2>Series</h2>
@@ -34,7 +33,11 @@ export default {
             <div class="card" v-for="(series, index) in store.series" :key="index">
                 <h2>{{ series.name }}</h2>
                 <h3>{{ series.original_name }}</h3>
-                <p>{{ series.original_language }}</p>
+                <div>
+                    <img v-if="avaibleFlags.includes(series.original_language)"
+                        :src="getImgUrl(series.original_language)">
+                    <p v-else>{{ series.original_language }}</p>
+                </div>
                 <span>{{ series.vote_average }}</span>
             </div>
         </div>
