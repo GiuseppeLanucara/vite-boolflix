@@ -2,6 +2,9 @@
 import { store } from "../store";
 export default {
     name: "AppCard",
+    props: {
+        star: Number,
+    },
     data() {
         return {
             store,
@@ -11,6 +14,10 @@ export default {
     methods: {
         getImgUrl(imgName) {
             return new URL(`../assets/img/${imgName}.png`, import.meta.url).href;
+        },
+        getProductVote: function () {
+            if (star)
+                return Math.ceil(vote / 2);
         }
     }
 }
@@ -23,6 +30,9 @@ export default {
             <img :src="`${store.imgDownload}${movie.poster_path}`">
             <h2>{{ movie.title }}</h2>
             <h3>{{ movie.original_title }}</h3>
+            <p class="stars" v-if="star > 0"><span>Vote:</span><span v-for="star in Math.ceil(star / 2)"><i
+                        class="fa-solid fa-star"></i></span>
+            </p>
             <div>
                 <img v-if="avaibleFlags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)">
                 <p v-else>{{ movie.original_language }}</p>
