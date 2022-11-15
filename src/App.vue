@@ -23,16 +23,23 @@ export default {
   methods: {
     getProducts() {
       let apiUrl = `${store.apiUrlMovie}?api_key=${store.apiUrlKey}`
+      let apiUrlSeries = `${store.apiUrlSeries}?api_key=${store.apiUrlKey}`
       if (this.store.searchKey !== "") {
         apiUrl += `&query=${this.store.searchKey}`
-        axios.get(apiUrl).then((resp) => {
-          this.store.movies = resp.data.results
-          console.log(this.store.movies);
-        })
+        apiUrlSeries += `&query=${this.store.searchKey}`
       }
-    }
-  }
+      axios.get(apiUrl).then((resp) => {
+        this.store.movies = resp.data.results
+        console.log(this.store.movies);
+      })
+      axios.get(apiUrlSeries).then((resp) => {
+        this.store.series = resp.data.results
+        console.log(this.store.series);
+      })
 
+    }
+
+  }
 }
 </script>
 
