@@ -52,6 +52,6 @@ export default {
 </template>
 
 
-<style >
-
+<style lang="scss">
+@use "../src/components/styles/general.scss";
 </style>
