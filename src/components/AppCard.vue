@@ -22,8 +22,9 @@ export default {
     <div class="container">
         <h3>Movies</h3>
         <div class="row">
-            <div class="col">
-                <div class="card" v-for="(movie, index) in store.movies" :key="index">
+
+            <div class="card" v-for="(movie, index) in store.movies" :key="index">
+                <div class="col">
                     <img v-if="movie.poster_path" :src="`${store.imgDownload}${movie.poster_path}`">
                     <img v-else src="../assets/img/no-img.jpg" alt="">
                     <h2>{{ movie.title }}</h2>
@@ -37,8 +38,9 @@ export default {
                     <span><i v-for="number in Math.ceil(movie.vote_average / 2)"
                             class="fa-solid fa-star yell"></i></span>
                 </div>
-
             </div>
+
+
 
         </div>
 
@@ -46,8 +48,9 @@ export default {
         <h2>Series</h2>
         <div class="section">
             <div class="row">
-                <div class="col">
-                    <div class="card" v-for="(series, index) in store.series" :key="index">
+
+                <div class="card" v-for="(series, index) in store.series" :key="index">
+                    <div class="col">
                         <img v-if="series.poster_path" :src="`${store.imgDownload}${series.poster_path}`">
                         <img v-else src="../assets/img/no-img.jpg" alt="">
                         <h2>{{ series.name }}</h2>
@@ -60,9 +63,10 @@ export default {
                         </div>
                         <span><i v-for="number in Math.ceil(series.vote_average / 2)"
                                 class="fa-solid fa-star yell"></i></span>
-
                     </div>
+
                 </div>
+
 
             </div>
 
