@@ -123,6 +123,15 @@ export default {
     position: relative;
     height: 50vh;
     overflow: hidden;
+    perspective: 1000px;
+
+
+    transform-style: preserve-3d;
+    transition: transform .8s;
+
+    &:hover {
+        transform: rotateY(180deg);
+    }
 
     .card-back {
         position: absolute;
@@ -138,6 +147,7 @@ export default {
 
     &:hover .card-back {
         z-index: 10;
+        transform: rotateY(180deg);
     }
 }
 
