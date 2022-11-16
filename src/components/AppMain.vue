@@ -1,4 +1,5 @@
 <script>
+
 export default {
     name: "AppMain",
 }
@@ -7,11 +8,13 @@ export default {
 
 
 <template>
+    <div class="container">
 
+    </div>
 
 </template>
 
 
-<style>
+<style lang="scss" scoped>
 
 </style>

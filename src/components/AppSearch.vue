@@ -12,11 +12,35 @@ export default {
 
 
 <template>
-    <input type="text" v-model="store.searchKey">
-    <button @click="$emit('research')">Search</button>
+    <div class="title">
+        <h1>BOOLFLIX</h1>
+        <div class="search">
+            <input type="text" v-model="store.searchKey">
+            <button @click="$emit('research')">Search</button>
+        </div>
+
+    </div>
+
 </template>
 
 
-<style>
+<style lang="scss" scoped>
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(20, 20, 20);
+    height: 80px;
 
+    h1 {
+        color: red;
+        margin-left: 5%;
+        padding: 1rem;
+    }
+
+    .search {
+        margin-right: 5%;
+        padding: 1rem;
+    }
+}
 </style>
