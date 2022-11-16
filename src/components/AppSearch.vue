@@ -42,5 +42,20 @@ export default {
         margin-right: 5%;
         padding: 1rem;
     }
+
+    input {
+        border-radius: 10px;
+        padding: .2rem;
+        background-color: rgb(34, 32, 32);
+        color: grey;
+    }
+
+    button {
+        margin-left: 5px;
+        padding: .2rem;
+        color: grey;
+        background-color: rgb(34, 32, 32);
+        border-radius: 5px;
+    }
 }
 </style>

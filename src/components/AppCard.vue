@@ -20,7 +20,7 @@ export default {
 
 <template>
     <div class="container">
-        <h3>Movies</h3>
+        <h2 class="types">MOVIES</h2>
         <div class="row">
 
             <div class="col card" v-for="(movie, index) in store.movies" :key="index">
@@ -31,7 +31,8 @@ export default {
                 </div>
                 <div class="card-back">
                     <h2>{{ movie.title }}</h2>
-                    <h3>{{ movie.original_title }}</h3>
+                    <h2>{{ movie.original_title }}</h2>
+                    <h2>{{ movie.overview }}</h2>
 
                     <div>
                         <img class="flag" v-if="avaibleFlags.includes(movie.original_language)"
@@ -50,7 +51,7 @@ export default {
         </div>
 
 
-        <h2>Series</h2>
+        <h2 class="types">SERIES</h2>
         <div class="section">
             <div class="row">
 
@@ -62,7 +63,8 @@ export default {
                     </div>
                     <div class="card-back">
                         <h2>{{ series.name }}</h2>
-                        <h3>{{ series.original_name }}</h3>
+                        <h2>{{ series.original_name }}</h2>
+                        <h2>{{ series.overview }}</h2>
 
                         <div>
                             <img class="flag" v-if="avaibleFlags.includes(series.original_language)"
@@ -122,21 +124,24 @@ export default {
     height: 50vh;
     overflow: hidden;
 
-}
+    .card-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: rgba(#000000, .8);
+        width: 100%;
+        z-index: -10;
 
-.card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: rgba(#000000, .8);
-    width: 100%;
-    display: none;
 
-    &:hover {
-        display: block;
+    }
+
+    &:hover .card-back {
+        z-index: 10;
     }
 }
+
+
 
 .card-front {
     height: 100%;
@@ -150,22 +155,25 @@ img {
 
 h2 {
     margin-left: 15px;
-    font-size: xx-small;
-    color: white;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    font-size: small;
+    color: rgba(255, 255, 255, 0.849);
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-h3 {
-    margin-left: 15px;
-    font-size: small;
-    color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 .flag {
     width: 150px;
+    margin-left: 15px;
+}
+
+.types {
+    color: #000000;
+    font-size: xx-large;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.863);
     margin-left: 15px;
 }
 </style>
